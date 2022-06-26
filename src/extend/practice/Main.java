@@ -1,9 +1,9 @@
 package extend.practice;
 
-public class RPG {
+public class Main {
 
 	public static void main(String[] args) {
-
+		
 	}
 
 }
