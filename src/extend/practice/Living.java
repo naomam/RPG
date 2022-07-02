@@ -1,4 +1,5 @@
 package extend.practice;
+
 public abstract class Living {
   protected String name; 
   protected int hp;       
