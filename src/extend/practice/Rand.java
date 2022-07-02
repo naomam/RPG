@@ -1,3 +1,4 @@
+package extend.practice;
 import java.util.Random;
 
 public class Rand {
