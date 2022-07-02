@@ -1,7 +1,5 @@
 package extend.practice;
 
-import java.util.List;
-
 public class Brave extends Human {
 	
 	public Brave(String name, int hp, int offensive) {
@@ -10,10 +8,10 @@ public class Brave extends Human {
 		offensive = 60;
 	}
 	
-	public void attack(List<String> monsters) {
+	public void attack(Living target) {
 		int nn = offensive * Rand.get(9);
-		monsters.hp = monsters.hp - nn;
-		System.out.println("勇者が剣で攻撃！" + monsters + "に"  + nn + "のダメージ！");
+		target.hp = target.hp - nn;
+		System.out.println("勇者が剣で攻撃！" + target + "に"  + nn + "のダメージ！");
 		
 	}
 }
