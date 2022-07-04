@@ -30,6 +30,7 @@ public class Main {
 			
 			if(((Living) Monster).hp <= 0) {
 				System.out.println(((Living) Monster).name + "は倒れた。");
+				Monster.remove(((Living) Monster).name);
 				break;
 				
 			}
@@ -39,6 +40,7 @@ public class Main {
 			
 			if(((Living) Human).hp <= 0) {
 				System.out.println(((Living) Human).name + "は倒れた。");
+				Human.remove(((Living) Human).name);
 				break;
 			}
 		}
