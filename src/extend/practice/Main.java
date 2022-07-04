@@ -1,6 +1,7 @@
 package extend.practice;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
 
@@ -13,22 +14,33 @@ public class Main {
 		Monster oak = new Slime("オーク",100,50);
 		Monster dragon = new Slime("ドラゴン",200,100);
 		
-		Human<Living> Humans = new ArrayList<>();
-			Humans.add(brave);
-			Humans.add(wizard);
-			Humans.add(fighter);
+		List<String> Human = new ArrayList<>();
+			Human.add("勇者");
+			Human.add("魔法使い");
+			Human.add("戦士");
 		
-		Monster<Living> Monsters = new ArrayList<>();
-			Monsters.add(slime);
-			Monsters.add(oak);
-			Monsters.add(dragon);
+		List<String> Monster = new ArrayList<>();
+			Monster.add("スライム");
+			Monster.add("オーク");
+			Monster.add("ドラゴン");
 	
-			while(true) {
-				Living.attack(Monsters);
+		while(true) {
+			((Living) Human).attack((Living) Monster);
+			System.out.println("人間のターン！");
+			
+			if(((Living) Monster).hp <= 0) {
+				System.out.println(((Living) Monster).name + "は倒れた。");
+				break;
 				
 			}
+			
+			((Living) Monster).attack((Living) Human);
+			System.out.println("モンスターのターン！");
+			
+			if(((Living) Human).hp <= 0) {
+				System.out.println(((Living) Human).name + "は倒れた。");
+				break;
+			}
+		}
 	}
-	
-	
-	
 }
