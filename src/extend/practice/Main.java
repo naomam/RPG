@@ -14,33 +14,40 @@ public class Main {
 		Monster oak = new Slime("オーク",100,50);
 		Monster dragon = new Slime("ドラゴン",200,100);
 		
-		List<String> Human = new ArrayList<>();
-			Human.add("勇者");
-			Human.add("魔法使い");
-			Human.add("戦士");
+		List<Human> humanList = new ArrayList<>();
+			humanList.add(brave);
+			humanList.add(wizard);
+			humanList.add(fighter);
 		
-		List<String> Monster = new ArrayList<>();
-			Monster.add("スライム");
-			Monster.add("オーク");
-			Monster.add("ドラゴン");
+		List<Monster> monsterList = new ArrayList<>();
+			monsterList.add(slime);
+			monsterList.add(oak);
+			monsterList.add(dragon);
 	
 		while(true) {
-			((Living) Human).attack((Living) Monster);
+			int attacker = Rand.get(2);
+			int target = Rand.get(2);
+			
+			Human human = humanList.get(attacker);
+			Monster monster = monsterList.get(target);
+			
 			System.out.println("人間のターン！");
 			
-			if(((Living) Monster).hp <= 0) {
-				System.out.println(((Living) Monster).name + "は倒れた。");
-				Monster.remove(((Living) Monster).name);
+			human.attack(monster);
+			
+			if(monster.hp <= 0) {
+				System.out.println(monster + "は倒れた。");
+				monsterList.remove(monster);
 				break;
 				
 			}
 			
-			((Living) Monster).attack((Living) Human);
 			System.out.println("モンスターのターン！");
+			monster.attack(human);
 			
-			if(((Living) Human).hp <= 0) {
-				System.out.println(((Living) Human).name + "は倒れた。");
-				Human.remove(((Living) Human).name);
+			if(human.hp <= 0) {
+				System.out.println(human + "は倒れた。");
+				humanList.remove(human);
 				break;
 			}
 		}
